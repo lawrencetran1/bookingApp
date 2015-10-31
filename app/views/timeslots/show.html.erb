@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/nav' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @timeslot.name %>
-</p>
+<div class="container">
+	
+	<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_timeslot_path(@timeslot) %> |
-<%= link_to 'Back', timeslots_path %>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @timeslot.name %>
+	</p>
+
+	<%= link_to 'Edit', edit_timeslot_path(@timeslot), class: "btn btn-default" %>
+	<%= link_to 'Back', timeslots_path, class: "btn btn-default" %>
+
+</div>

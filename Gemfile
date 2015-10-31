@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Add new gems here
 gem 'pry-rails'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug'

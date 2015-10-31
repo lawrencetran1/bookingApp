@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/nav' %>
 
-<p>
-  <strong>First:</strong>
-  <%= @guest.first_name %>
-</p>
+<div class="container">
+  
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Last:</strong>
-  <%= @guest.last_name %>
-</p>
+  <p>
+    <strong>First:</strong>
+    <%= @guest.first_name %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @guest.email %>
-</p>
+  <p>
+    <strong>Last:</strong>
+    <%= @guest.last_name %>
+  </p>
 
-<p>
-  <strong>Plus One:</strong>
-  <%= @guest.plus_one %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @guest.email %>
+  </p>
 
-<p>
-  <strong>Timeslot:</strong>
-  <%= @guest.timeslot %>
-</p>
+  <p>
+    <strong>Plus One:</strong>
+    <%= @guest.plus_one %>
+  </p>
 
-<%= link_to 'Edit', edit_guest_path(@guest) %> |
-<%= link_to 'Back', guests_path %>
+  <p>
+    <strong>Timeslot:</strong>
+    <%= @guest.timeslot.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_guest_path(@guest), class: "btn btn-default" %>
+  <%= link_to 'Back', guests_path, class: "btn btn-default" %>
+
+
+</div>

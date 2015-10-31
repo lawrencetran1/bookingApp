@@ -31,7 +31,9 @@
     <%= f.label :timeslot_id %><br>
     <%= f.collection_select(:timeslot_id, getTimeSlots, :id, :name) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <br>
+  <div class="actions" style="display:inline-block; float:left;">
+    <%= link_to 'Back', guests_path, class: "btn btn-default" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
