@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :guests
   resources :timeslots
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
+  get '/admin' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   root 'guests#new'
 
   # Example of regular route:

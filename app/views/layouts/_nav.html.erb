@@ -19,6 +19,13 @@
           <li><a href="<%= guests_path %>">Guests</a></li>
           <li><a href="<%= timeslots_path %>">Timeslots</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><a href="<%= logout_path %>">Admin Out</a></li>
+        <% else %>
+          <li><a href="<%= admin_path %>">Admin Login</a></li>
+        <% end %>
+      </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

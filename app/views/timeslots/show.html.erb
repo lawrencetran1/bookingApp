@@ -9,7 +9,7 @@
 	  <%= @timeslot.name %>
 	</p>
 
-	<%= link_to 'Edit', edit_timeslot_path(@timeslot), class: "btn btn-default" %>
+	<%= link_to 'Edit', edit_timeslot_path(@timeslot), class: "btn btn-default" if current_user %>
 	<%= link_to 'Back', timeslots_path, class: "btn btn-default" %>
 
 </div>

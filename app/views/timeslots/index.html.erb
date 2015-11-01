@@ -21,8 +21,8 @@
           <td><%= timeslot.name %></td>
           <td><%= 35-timeslot.guest_count %></td>
           <td><%= link_to 'Show', timeslot, class: "btn btn-success" %></td>
-          <td><%= link_to 'Edit', edit_timeslot_path(timeslot), class: "btn btn-info" %></td>
-          <td><%= link_to 'Destroy', timeslot, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to 'Edit', edit_timeslot_path(timeslot), class: "btn btn-info" if current_user %></td>
+          <td><%= link_to 'Destroy', timeslot, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if current_user %></td>
         </tr>
       <% end %>
     </tbody>
@@ -30,7 +30,7 @@
 
   <br>
 
-  <%= link_to 'New Timeslot', new_timeslot_path, class: "btn btn-primary" %>
+  <%= link_to 'New Timeslot', new_timeslot_path, class: "btn btn-primary" if current_user %>
 
 
 </div>

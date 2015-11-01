@@ -26,8 +26,8 @@
           <td><%= guest.plus_one %></td>
           <td><%= guest.timeslot.name %></td>
           <td><%= link_to 'Show', guest, class: "btn btn-success" %></td>
-          <td><%= link_to 'Edit', edit_guest_path(guest), class: "btn btn-info" %></td>
-          <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to 'Edit', edit_guest_path(guest), class: "btn btn-info" if current_user %></td>
+          <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if current_user %></td>
         </tr>
       <% end %>
     </tbody>
