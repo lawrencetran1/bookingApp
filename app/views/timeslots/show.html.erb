@@ -26,7 +26,11 @@
           <td><%= guest.last_name %></td>
           <td><%= guest.email %></td>
           <td><%= guest.plus_one %></td>
-          <td><%= 1 + guest.plus_one %></td>
+          <% if guest.plus_one %>
+            <td><span class="badge"><%= 1 + guest.plus_one %></span></td>
+          <% else %>
+            <td><span class="badge">1</span></td>
+          <% end %>
           <td><%= guest.timeslot.name %></td>
         </tr>
       <% end %>

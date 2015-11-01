@@ -24,11 +24,13 @@ class GuestsController < ApplicationController
   # POST /guests
   # POST /guests.json
   def create
-    timeslot = Timeslot.find(params[:guest][:timeslot_id])
+    @timeslot = Timeslot.find(params[:guest][:timeslot_id])
 
-    if ( (35 - timeslot.guest_count.to_i) - params[:guest][:plus_one].to_i ) < 0
+    if ( (35 - @timeslot.guest_count.to_i) - (1 + params[:guest][:plus_one].to_i) ) < 0
 
-      redirect_to users_path
+      respond_to do |format|
+        format.html { redirect_to @timeslot, notice: 'Try again. Not enough slots.' }
+      end
 
     else
       @guest = Guest.new(guest_params)
@@ -36,7 +38,12 @@ class GuestsController < ApplicationController
 
       last_guest = Guest.last
       guest_timeslot = last_guest.timeslot
-      guest_timeslot.guest_count += 1 + last_guest.plus_one
+
+      if last_guest.plus_one
+        guest_timeslot.guest_count += 1 + last_guest.plus_one
+      else
+        guest_timeslot.guest_count += 1
+      end
 
       respond_to do |format|
         if guest_timeslot.save
