@@ -4,10 +4,34 @@
 	
 	<p id="notice"><%= notice %></p>
 
-	<p>
-	  <strong>Name:</strong>
-	  <%= @timeslot.name %>
-	</p>
+	<h2 class="text-center"><%= @timeslot.name %> - <%= 35-@timeslot.guest_count %> / 35 slots remaining</h2><br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Friends</th>
+        <th>Total</th>
+        <th>Timeslot</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @guests.each do |guest| %>
+        <tr>
+          <td><%= guest.first_name %></td>
+          <td><%= guest.last_name %></td>
+          <td><%= guest.email %></td>
+          <td><%= guest.plus_one %></td>
+          <td><%= 1 + guest.plus_one %></td>
+          <td><%= guest.timeslot.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 	<%= link_to 'Edit', edit_timeslot_path(@timeslot), class: "btn btn-default" if current_user %>
 	<%= link_to 'Back', timeslots_path, class: "btn btn-default" %>

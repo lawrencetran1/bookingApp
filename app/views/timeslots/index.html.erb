@@ -19,7 +19,7 @@
       <% @timeslots.each do |timeslot| %>
         <tr>
           <td><%= timeslot.name %></td>
-          <td><%= 35-timeslot.guest_count %></td>
+          <td><%= 35-timeslot.guest_count %> / 35</td>
           <td><%= link_to 'Show', timeslot, class: "btn btn-success" %></td>
           <td><%= link_to 'Edit', edit_timeslot_path(timeslot), class: "btn btn-info" if current_user %></td>
           <td><%= link_to 'Destroy', timeslot, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if current_user %></td>

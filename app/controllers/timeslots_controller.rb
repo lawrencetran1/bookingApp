@@ -10,6 +10,7 @@ class TimeslotsController < ApplicationController
   # GET /timeslots/1
   # GET /timeslots/1.json
   def show
+    @guests = Timeslot.find(params[:id]).guests
   end
 
   # GET /timeslots/new
